@@ -1,0 +1,270 @@
+/*-----------------general-----------------*/
+
+html,body {
+	width:100%;
+	min-height: 100vh;
+	background-color: #102D36;
+	color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dark {
+	color:#102D36;
+}
+
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.clicker:hover{
+	background: #8FFAD8;
+	cursor: pointer;
+}
+
+.clicker:active{
+	background-color: #fff;
+}
+
+main {
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-top: 15px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr 1fr;
+	grid-template-areas: "hdr hdr"
+						 "cnt asd"
+						 ". asd";
+}
+/*-----------------header-----------------*/
+
+header {
+	grid-area: hdr;
+	display: flex;
+	padding-top: 20px;
+	justify-content: space-between;
+	padding-bottom: 1%;
+	flex-wrap: wrap;
+}
+
+
+.container > .text{
+	margin-left: 10px;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.item2 > p{
+	margin-right: 30px;
+}
+.item2 > p:last-child{
+	margin-right: 0px;
+}
+
+.item2 p:hover{
+	background: linear-gradient(87.12deg, #05F591 -3.44%, #05F5D9 103.31%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	cursor: pointer;
+}
+
+.item3 {
+	background-color: #05F591;
+	height: 56px;
+	width: 186px;
+	border-radius: 10px;
+}
+
+.under-txt{
+	font-weight: 500;
+	font-size: 42px;
+	line-height: 63px;
+	margin-top: -15px
+}
+/*-----------------content-----------------*/
+
+
+content {
+	grid-area: cnt;
+	align-self: center;
+}
+
+.start-txt {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 60px;
+	line-height: 90px;
+}
+
+
+.end-txt{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 60px;
+	line-height: 90px;
+	background: linear-gradient(87.12deg, #05F591 -3.44%, #05F5D9 103.31%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+
+}
+
+.btn{
+	width: 325px;
+	height: 56px;
+	background: linear-gradient(85.13deg, #05F591 -12.75%, #05F5D9 121.55%);
+	border-radius: 10px;
+}
+.wrapper {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.link {
+	text-decoration: underline;
+	font-size: 20px;
+	align-self: flex-end;
+}
+
+.panel {
+	display: flex;
+	flex-wrap: wrap
+}
+/*-----------------aside-----------------*/
+
+aside {
+	grid-area: asd;
+	display:grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: repeat(11,2fr);
+	grid-gap: 20px;
+
+}
+
+img{
+	border-radius: 50px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border: 1px solid #000000;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	max-height: 262px;
+	max-width: 197px;
+
+}
+
+.img1{
+	grid-column: 1/2;
+	grid-row: 1/4;
+}
+.img2{
+	grid-column: 1/2;
+	grid-row: 4/7;
+}
+.img3{
+	grid-column: 1/2;
+	grid-row: 7/10;
+}
+.img4{
+	grid-column: 2/3;
+	grid-row: 2/5;
+}
+.img5{
+	grid-column: 2/3;
+	grid-row: 5/8;
+}
+.img6{
+	grid-column: 2/3;
+	grid-row: 8/11;
+}
+.img7{
+	grid-column: 3/4;
+	grid-row: 1/4;
+}
+.img8{
+	grid-column: 3/4;
+	grid-row: 4/7;
+}
+.img9{
+	grid-column: 3/4;
+	grid-row: 7/10;
+}
+
+@media only screen and (min-width: 1024px){
+    
+
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1023px) {
+	.start-txt, .end-txt {font-size: 50px;line-height: 70px;}
+    .container > .text {font-size: 20px;}
+    .item3 {
+		height: 36px;
+		width: 156px;
+		align-self: center;
+		}
+	main {
+		grid-template-rows: auto auto 1fr;
+		grid-template-areas: "hdr hdr"
+						 "cnt cnt"
+						 "asd asd";
+		}
+	content {
+		align-self: start;
+		margin-bottom: 50px;
+		margin-top: 50px;
+	}
+	aside{
+		grid-template-columns: repeat(3,0.25fr);
+		justify-content: center;: 
+
+	}
+	.item2 {
+		margin-left: 15px;
+		margin-right: 15px
+	}
+}
+
+@media only screen and (max-width: 699px) {
+	header{flex-direction: column;}
+	.start-txt, .end-txt {font-size: 35px;line-height: 50px;}
+	.under-txt {line-height: 40px;font-size: 30px; margin-top: 5px}
+    .container > .text {font-size: 28px;}
+    .item3 {
+		height: 56px;
+		width: 286px;
+		align-self: center;
+		}
+	main {
+		grid-template-rows: auto auto 1fr;
+		grid-template-areas: "hdr hdr"
+						 "cnt cnt"
+						 "asd asd";
+		}
+	content {
+		align-self: start;
+		margin-bottom: 50px;
+		margin-top: 50px;
+	}
+	aside{
+		grid-template-columns: repeat(3,1fr);
+
+	}
+	.item2 {
+		margin-top: 15px;
+		margin-bottom: 25px;
+		font-size: 20px
+	}
+}
