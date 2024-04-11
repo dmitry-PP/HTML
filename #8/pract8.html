@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>8</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+const SAVE = '12';
+const EXIT = '13';
+const e = 'e';
+const pi = 'pi'
+const m = 'm'
+
+let memory = null;
+
+let actions = new Map();
+actions.set('1',()=> getValue(prompt('Введите первое слагаемое')) + getValue(prompt('Введите второе слагаемое')) );
+actions.set('2',()=> getValue(prompt('Введите уменьшаемое')) - getValue(prompt('Введите вычитаемое')) );
+actions.set('3',()=> getValue(prompt('Введите первое множитель')) * getValue(prompt('Введите второе множитель')) );
+actions.set('4',()=>{ 
+    let input1 = getValue(prompt('Введите делимое'));
+    let input2 = getValue(prompt('Введите делитель'));
+
+    if(input2 === 0){
+        throw new Error('Деление на ноль!')
+    }
+    return input1 / input2;
+
+});
+actions.set('5',()=> Math.pow(getValue(prompt('Введите число')), getValue(prompt('Введите степень')) ));
+actions.set('6',()=> {
+    let input = getValue(prompt('Введите число'));
+
+    if(input < 0) throw new Error('Нельзя взять корень из отрицательного числа!')
+    return Math.sqrt( input);
+});
+actions.set('7',()=> getValue(prompt('Введите число')) /100 );
+actions.set('8',()=> Math.sin(getValue(prompt('Введите число'))) );
+actions.set('9',()=> Math.cos(getValue(prompt('Введите число'))) );
+actions.set('10',()=> Math.tan(getValue(prompt('Введите число'))) );
+actions.set('11',()=> Math.log(getValue(prompt('Введите число'))) );
+
+
+
+function getAction(stringBefore = ''){
+    let action = prompt(stringBefore + `
+        1. Сложение
+        2. Вычитание
+        3. Умножение
+        4. Деление
+        5. Возведение в степень
+        6. Корень
+        7. Проценты
+        8. sin(x)
+        9. cos(x)
+        10. tan(x)
+        11. log(x)
+        ${SAVE}. Сохранить результат
+        ${EXIT}. Выйти из программы`);
+    return action;
+}
+
+function getValue(value){
+    switch(value){
+        case e: return Math.E;
+        case pi: return Math.PI;
+        case m:
+            if (memory != null) return memory;
+            throw new Error("Память пуста")
+        default:
+            let int = parseFloat(value);
+
+            if(isNaN(int)) throw new Error('Было введено не число!');
+            return int;
+
+    }
+}
+
+function getTwoInputs(){
+    let input1 = getValue(prompt());
+    let input2 = getValue(prompt());
+}
+
+function saveMemory(value){
+    if(result !== undefined) memory = parseFloat(value);
+    else alert('Нет значения для сохранения!');
+}
+
+let result;
+
+while(true)
+{
+    let input = getAction(
+        (memory!=null)? `Значение в памяти: ${memory}`: ''
+    );
+    if(input == EXIT || input==null) break;
+
+    if(input == SAVE) {
+        saveMemory(result);
+        continue;
+    }
+
+    if(actions.get(input) === undefined) {
+        alert('Такого действия нет!');
+        continue;
+    }
+
+    try
+    {
+        result = actions.get(input)()
+        alert('Результат: '+result)
+    }
+    catch(error)
+    {
+        alert(error.message)
+    }
+
+
+}
+alert('Программа завершена')
+	</script>
+</head>
+<body>
+
+</body>
+</html>
