@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>9</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+<main>
+    <div class=wrapper>
+        <h1 align="center">Добавляй свои заметки быстро и удобно!</h1>
+        <div style="margin: 10px 0px ">
+            <img src="task.png" width="800px">
+        </div>
+        <div id="task-form">
+            <div class="back-fone">
+
+                <div class="popup-form">
+                    <h2>Создайте задачу</h2>
+                    <form id="form" data-update="0">
+                        <p>
+                            <label>Заголовок:</label>
+                            <input type="text" name="title" class="input-txt" maxlength="50" id="title">
+                        </p>
+                        <p>
+                            <label>Контент:</label>
+                            <textarea type="text" name="content" class="input-txt" rows="5" cols="33" id="content"></textarea> 
+                            
+                        </p>
+                        <p>
+                            <label>Картинка:</label>
+                            <input type="file" name="file" id="photo">
+                            <p class="image-wrapper" style="display: none;"> 
+                                <img id="img" height="200px">
+                            </p>
+                        </p>
+
+                    </form>
+                    <div class="menu-buttons">
+                        <div class="close btn">Назад</div>
+                        <div class="button btn">Сохранить</div>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-tasks">
+            </ul>
+            <div class="open-form btn">
+                <span id="plus" style="font-size: 50px;">+</span>
+                &emsp;Добавить новую запись
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
